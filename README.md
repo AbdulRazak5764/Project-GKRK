@@ -1,295 +1,109 @@
-# 🧠 ExamGuard AI – Online Exam Cheating Risk Predictor
+<div align="center">
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=32&duration=3000&pause=500&color=7C3AED&center=true&vCenter=true&width=600&lines=ExamGuard+AI;Intelligent+Exam+Proctoring;AI-Powered+Cheating+Risk+Predictor" alt="Typing SVG" />
+</div>
 
-> 🚀 A Cognitive–Behavioral AI System for Intelligent Exam Proctoring
-
----
-
-## 📖 Table of Contents
-
-* Overview
-* Problem Statement
-* Solution
-* Features
-* System Architecture
-* Modules
-* Tech Stack
-* Installation
-* Usage
-* API Endpoints
-* Project Structure
-* Results
-* Advantages
-* Limitations
-* Future Scope
-* Author
+<div align="center">
+  
+  🚀 **A Cognitive–Behavioral AI System for Intelligent Exam Proctoring**
+  
+  [![Next.js](https://img.shields.io/badge/Next.js-15-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
+  [![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
+  [![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.0-06B6D4?style=for-the-badge&logo=tailwindcss)](https://tailwindcss.com/)
+  [![Python](https://img.shields.io/badge/Python-3.10-3776AB?style=for-the-badge&logo=python)](https://www.python.org/)
+  [![TensorFlow](https://img.shields.io/badge/TensorFlow-2.0-FF6F00?style=for-the-badge&logo=tensorflow)](https://tensorflow.org/)
+  [![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
+  
+  <img src="https://img.shields.io/badge/Status-Active-success?style=flat-square" />
+  <img src="https://img.shields.io/badge/Version-1.0.0-blue?style=flat-square" />
+  <img src="https://img.shields.io/badge/PRs-Welcome-brightgreen?style=flat-square" />
+  <img src="https://img.shields.io/badge/Hackathon-Ready-orange?style=flat-square" />
+  
+</div>
 
 ---
 
-## 🌍 Overview
-
-With the rapid growth of online education, maintaining **academic integrity** during remote exams has become a major challenge.
-
-Traditional proctoring systems:
-
-* Rely on webcam surveillance
-* Use rule-based detection
-* Are intrusive and unreliable
-
-👉 This project introduces a **next-gen AI system** that predicts cheating risk using **behavioral intelligence** instead of binary decisions.
-
----
-
-## ❗ Problem Statement
-
-Existing systems fail because:
-
-* ❌ Binary output (Cheating / Not Cheating)
-* ❌ High false positives
-* ❌ No behavioral understanding
-* ❌ Privacy-invasive monitoring
-
-👉 **Goal:**
-Build a system that outputs a **probability score (0–100%)** based on user behavior.
+## 📑 Table of Contents
+- [🌟 Overview](#-overview)
+- [🎯 Problem Statement](#-problem-statement)
+- [💡 Our Solution](#-our-solution)
+- [✨ Features](#-features)
+- [🏗️ System Architecture](#️-system-architecture)
+- [🧩 Modules](#-modules)
+- [📊 Risk Scoring Model](#-risk-scoring-model)
+- [🛠️ Tech Stack](#️-tech-stack)
+- [📸 Screenshots & Demo](#-screenshots--demo)
+- [⚙️ Installation](#️-installation)
+- [🚀 Usage](#-usage)
+- [📁 Project Structure](#-project-structure)
+- [📡 API Endpoints](#-api-endpoints)
+- [📊 Results](#-results)
+- [✅ Advantages](#-advantages)
+- [⚠️ Limitations](#️-limitations)
+- [🔮 Future Scope](#-future-scope)
+- [👨‍💻 Team](#-team)
+- [📞 Contact](#-contact)
+- [📄 License](#-license)
+- [⭐ Support](#-support)
 
 ---
 
-## 💡 Solution
+## 🌟 Overview
 
-We developed an AI-powered system that:
+<div align="center">
+  <img src="https://placehold.co/1200x400/0a0a2a/7C3AED?text=ExamGuard+AI+Dashboard+Preview" alt="Dashboard Preview" width="90%"/>
+</div>
 
-1. Collects behavioral data
-2. Extracts meaningful features
-3. Analyzes patterns
-4. Predicts cheating probability
+> **"Redefining Academic Integrity with AI-Driven Behavioral Intelligence"**
 
-👉 Example Output:
+With the **exponential growth of online education**, ensuring **academic integrity** in remote examinations has become one of the **biggest challenges** in the education technology sector. 
 
-```bash
-Risk Score = 72% (Moderate Risk)
-```
+Traditional proctoring systems fall short because they:
+- ❌ **Rely on simple webcam surveillance**
+- ❌ **Use rigid rule-based detection**
+- ❌ **Make binary decisions (Cheating/Not Cheating)**
+- ❌ **Fail to understand behavioral patterns**
 
----
-
-## ✨ Features
-
-* 🔍 Real-time behavior tracking
-* 🧠 AI-based risk prediction
-* 📊 Interactive dashboard
-* 🎯 Probability-based output (0–100%)
-* 📧 Email notification system
-* 🎨 Modern UI (Glassmorphism + Animations)
-* ⚡ Fast & responsive
+**ExamGuard AI** is a **next-generation intelligent proctoring system** that leverages **artificial intelligence**, **computer vision**, and **behavioral analytics** to predict cheating risk with a **continuous probability score (0–100%)** , providing a **fair, ethical, and accurate** alternative to traditional monitoring.
 
 ---
 
-## 🏗️ System Architecture
+## 🎯 Problem Statement
 
-```bash
-User (Student)
-     ↓
-Webcam + Keyboard + Mouse Input
-     ↓
-Feature Extraction (CV + Interaction)
-     ↓
-Behavior Analysis Engine
-     ↓
-Risk Prediction Model
-     ↓
-Dashboard + Alerts + Email Notification
-```
+### The Challenge
+Online examinations are becoming the **new normal**, but **ensuring fairness** in remote environments remains **exceptionally difficult**.
 
----
+### Current Systems Limitations
 
-## 🧩 Modules Explanation
+| Issue | Description |
+|-------|-------------|
+| 🚫 **Binary Detection** | Only outputs "Cheating" or "Not Cheating" - no nuance |
+| 📈 **High False Positives** | Innocent students flagged as cheaters |
+| 👁️ **Privacy Invasion** | Continuous webcam recording without context |
+| 🧠 **No Behavioral Understanding** | Cannot detect intelligent cheating patterns |
+| 📱 **Device Blindness** | Misses external devices, screen switching |
+| 👤 **Impersonation Vulnerability** | Cannot verify identity continuously |
 
-### 📥 1. Data Acquisition
-
-* Captures webcam feed
-* Records keyboard activity
-* Tracks mouse movement
+### Common Cheating Methods Students Use:
+- 📱 **External devices** (smartwatches, phones)
+- 👤 **External help** (someone off-screen)
+- 🖥️ **Screen switching** (opening other tabs/apps)
+- 🔄 **Impersonation** (someone else taking the exam)
+- 🎭 **Unusual interaction patterns** (copy-paste, rapid tab switching)
 
 ---
 
-### 🔍 2. Feature Extraction
+## 💡 Our Solution
 
-* Face detection
-* Eye gaze tracking
-* Head pose estimation
-* Typing speed analysis
-* Mouse idle behavior
+<div align="center">
+  <img src="https://placehold.co/800x400/0a0a2a/7C3AED?text=AI+Risk+Prediction+Flow" alt="Solution Flow" width="80%"/>
+</div>
 
----
+**ExamGuard AI** introduces a **cognitive-behavioral probability-based proctoring framework** that:
 
-### 🧠 3. Behavioral Analysis
+✅ **Tracks student behavior in real-time** (gaze, posture, typing, interaction)  
+✅ **Uses AI to detect anomalies** with machine learning models  
+✅ **Generates cheating probability (0–100%)** instead of binary decisions  
+✅ **Provides explainable monitoring** with human-in-the-loop  
+✅ **Reduces false accusations** through contextual understanding  
 
-* Detects anomalies
-* Identifies unusual patterns
-* Monitors cognitive load
-
----
-
-### 📊 4. Risk Prediction
-
-Uses weighted scoring:
-
-```bash
-Risk Score =
-(Behavior × 40%)
-+ (Performance × 25%)
-+ (Environment × 20%)
-+ (Interaction × 15%)
-```
-
----
-
-### 📈 5. Dashboard
-
-Displays:
-
-* Risk score
-* Alerts
-* Activity logs
-* Student performance
-
----
-
-## 🛠️ Tech Stack
-
-### Frontend
-
-* Next.js (App Router)
-* TypeScript
-* Tailwind CSS
-* Framer Motion
-
-### Backend
-
-* Node.js / Flask
-
-### AI/ML
-
-* TensorFlow / PyTorch
-
-### Computer Vision
-
-* OpenCV
-* MediaPipe
-
-### Database
-
-* MongoDB
-
----
-
-## ⚙️ Installation
-
-```bash
-git clone https://github.com/your-username/examguard-ai.git
-cd examguard-ai
-npm install
-npm run dev
-```
-
----
-
-## ▶️ Usage
-
-1. Open the application
-2. Login as Student/Admin
-3. Start exam
-4. System tracks behavior
-5. Risk score generated
-6. Admin can view dashboard
-
----
-
-## 🔌 API Endpoints
-
-### Send Email
-
-```bash
-POST /api/send-email
-```
-
-### Get Risk Data
-
-```bash
-GET /api/risk
-```
-
----
-
-## 📁 Project Structure
-
-```bash
-app/
- ├── login/
- ├── dashboard/
- ├── analysis/
- ├── api/
-components/
-contexts/
-hooks/
-lib/
-```
-
----
-
-## 📊 Results
-
-* ✅ Real-time tracking implemented
-* ✅ Risk scoring working
-* ✅ Low latency (~1–2 sec)
-* ✅ Detects abnormal behavior
-
----
-
-## 👍 Advantages
-
-* High accuracy
-* Low false positives
-* Ethical AI approach
-* Scalable system
-
----
-
-## ⚠️ Limitations
-
-* Requires webcam
-* Lighting dependent
-* Limited dataset
-
----
-
-## 🔮 Future Scope
-
-* LSTM-based prediction models
-* Cloud deployment
-* LMS integration
-* Improved accuracy
-
----
-
-## 👨‍💻 Author
-
-**Shaik Abdul Razak**
-B.Tech CSE
-Chaitanya Deemed to be University
-
----
-
-## 🌐 Live Demo
-
-👉 Coming Soon (Deploy on Vercel)
-
----
-
-## ⭐ Support
-
-If you like this project:
-
-⭐ Star this repository
-🍴 Fork it
-📢 Share it
-
----
+### How It Works

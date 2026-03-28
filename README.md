@@ -122,7 +122,7 @@ Dashboard + Alerts + Email Notification
 text
 
 ### Example Output
-```json
+
 {
   "studentId": "CS2024001",
   "riskScore": 72,
@@ -135,7 +135,8 @@ text
   },
   "recommendation": "Review session for unusual gaze patterns"
 }
-✨ Features
+
+### ✨ Features
 🎯 Core Features
 Feature	Description
 🔍 Real-time Tracking	Continuous monitoring of student behavior during exams
@@ -157,7 +158,7 @@ Face Detection: Continuous identity verification
 
 Environment Analysis: Detects multiple faces, unusual lighting
 
-🛡️ Ethical AI Features
+### 🛡️ Ethical AI Features
 Privacy-Preserving: No permanent video storage
 
 Explainable Outputs: Clear reasons for risk scores
@@ -166,7 +167,7 @@ Human-in-the-Loop: Final decisions require human review
 
 Opt-in Consent: Students informed about monitoring
 
-🏗️ System Architecture
+### 🏗️ System Architecture
 text
 ┌─────────────────────────────────────────────────────────────────┐
 │                      EXAMGUARD AI SYSTEM                        │
@@ -215,15 +216,16 @@ text
 │  └─────────────────────────────────────────────────────┘        │
 │                                                                 │
 └─────────────────────────────────────────────────────────────────┘
-🧩 Modules
-1. 📥 Data Acquisition Module
+
+### 🧩 Modules
+### 1. 📥 Data Acquisition Module
 python
 # Captures real-time data from:
 - Webcam feed (30 fps)
 - Keyboard keystrokes (timing & frequency)
 - Mouse movements (position, clicks, idle time)
 - System events (tab switching, copy-paste)
-2. 🔍 Feature Extraction Module
+### 2. 🔍 Feature Extraction Module
 Feature	Technology	Purpose
 Face Detection	MediaPipe	468 facial landmarks
 Eye Gaze	OpenCV	Gaze direction tracking
@@ -231,7 +233,7 @@ Head Pose	MediaPipe	Pitch, yaw, roll angles
 Typing Speed	Custom	Words per minute, pause patterns
 Mouse Behavior	Custom	Idle time, movement patterns
 Screen Activity	Browser API	Tab focus, window switching
-3. 🧠 Behavioral Analysis Engine
+### 3. 🧠 Behavioral Analysis Engine
 Anomaly Detection: Identifies patterns outside normal behavior
 
 Pattern Recognition: Detects known cheating behaviors
@@ -265,7 +267,7 @@ def calculate_risk_score(features):
     risk += features.copy_paste * 0.07
     
     return min(risk * 100, 100)
-5. 📈 Dashboard Module
+### 5. 📈 Dashboard Module
 Live Risk Scores: Real-time updates every 2 seconds
 
 Student Analytics: Individual and cohort views
@@ -276,7 +278,7 @@ Reports: Downloadable PDF reports for each session
 
 Logs: Complete audit trail for review
 
-📊 Risk Scoring Model
+###  📊 Risk Scoring Model
 Score Interpretation
 Risk Score	Level	Action Required
 0-30%	🟢 Low Risk	No action, normal monitoring
@@ -289,10 +291,10 @@ text
 │           RISK SCORE CALCULATION            │
 ├─────────────────────────────────────────────┤
 │                                             │
-│  ████████████████████░░░░░░░░░░░░░░░░░░░░ │
-│  ██████████████████████████░░░░░░░░░░░░░░ │
-│  ████████████████████████████████████░░░░ │
-│  ████████████████████████████████████████ │
+│  ████████████████████░░░░░░░░░░░░░░░░░░░░   │
+│  ██████████████████████████░░░░░░░░░░░░░░   │
+│  ████████████████████████████████████░░░░   │
+│  ████████████████████████████████████████   │
 │                                             │
 │  🧠 Behavior         ████████████████ 40%  │
 │  📝 Performance      ██████████░░░░░░ 25%  │
@@ -300,7 +302,8 @@ text
 │  🖱️ Interaction      ██████░░░░░░░░░░ 15%  │
 │                                             │
 └─────────────────────────────────────────────┘
-🛠️ Tech Stack
+
+### 🛠️ Tech Stack
 Frontend
 Technology	Purpose
 Next.js 15	React framework with App Router
@@ -326,9 +329,8 @@ Git	Version control
 GitHub	Code hosting
 Vercel	Frontend deployment
 Render	Backend deployment
-📸 Screenshots & Demo
-🏠 Homepage
-text
+### 📸 Screenshots & Demo
+### 🏠 Homepage
 ┌─────────────────────────────────────────────────────────────────┐
 │  [LOGO]  ExamGuard AI          Login ▼  Sign Up  Contact       │
 ├─────────────────────────────────────────────────────────────────┤
@@ -352,7 +354,7 @@ text
 │   🔥 Features: AI Monitoring | Behavior Analysis | Risk Score  │
 │                                                                 │
 └─────────────────────────────────────────────────────────────────┘
-📊 Dashboard
+### 📊 Dashboard
 text
 ┌─────────────────────────────────────────────────────────────────┐
 │  ☰ ExamGuard AI                                    Admin 👤    │
@@ -419,7 +421,8 @@ text
 │  ExamGuard AI System                                            │
 │                                                                 │
 └─────────────────────────────────────────────────────────────────┘
-🎥 Live Demo
+
+### 🎥 Live Demo
 Live Demo URL: https://examguard-ai.vercel.app
 (Coming soon after deployment)
 
@@ -429,7 +432,7 @@ Student: student@examguard.com / demo123
 
 Admin: admin@examguard.com / admin123
 
-⚙️ Installation
+### ⚙️ Installation
 Prerequisites
 Node.js 18+
 
@@ -456,7 +459,7 @@ cd ..
 Step 4: Environment Variables
 Create .env.local file in root directory:
 
-env
+### env
 # Database
 MONGODB_URI=your_mongodb_connection_string
 
@@ -477,7 +480,7 @@ bash
 npm run dev
 Open http://localhost:3000
 
-🚀 Usage
+### 🚀 Usage
 For Students
 Login with your credentials
 
@@ -510,7 +513,9 @@ POST /api/alert
   "riskScore": 85,
   "reason": "Multiple face detection"
 }
-📁 Project Structure
+
+
+### 📁 Project Structure
 text
 Project-GKRK/
 ├── app/                          # Next.js App Router
@@ -551,7 +556,8 @@ Project-GKRK/
 ├── tailwind.config.js            # Tailwind config
 ├── tsconfig.json                 # TypeScript config
 └── README.md                     # This file
-📡 API Endpoints
+
+### 📡 API Endpoints
 Method	Endpoint	Description
 POST	/api/auth/login	User authentication
 POST	/api/auth/register	User registration
@@ -562,7 +568,8 @@ POST	/api/send-email	Send email notifications
 GET	/api/analytics	Get analytics data
 GET	/api/reports	Download reports
 POST	/api/alert	Trigger alert
-📊 Results
+
+### 📊 Results
 Performance Metrics
 Metric	Value
 Accuracy	92.5%
@@ -582,7 +589,8 @@ text
 ✅ Dashboard rendering: PASS
 ✅ Cross-browser compatibility: PASS
 ✅ Advantages
-#	Advantage	Description
+
+### #	Advantage	Description
 1	🎯 High Accuracy	92%+ accuracy in detecting suspicious behavior
 2	🔄 Continuous Monitoring	Real-time tracking throughout exam duration
 3	🛡️ Low False Positives	Only 5.2% false positive rate
@@ -598,7 +606,9 @@ text
 3	📊 Limited Dataset	Continuous model training with new data
 4	🌐 Internet Required	Offline mode with sync capability
 5	🖥️ Device Dependent	Support for multiple device types
-🔮 Future Scope
+
+
+### 🔮 Future Scope
 🚀 Short Term (3-6 months)
 LSTM-based temporal analysis for better pattern recognition
 
@@ -632,15 +642,15 @@ International certification for online proctoring
 
 Open-source community edition
 
-👨‍💻 Team
-Role	Name	GitHub	LinkedIn
-Team Leader	Shaik Abdul Razak	@AbdulRazak5764	Profile
-Team Member	K. Ramya	@Ramya	Profile
-Team Member	P. Rajesh	@Rajesh	Profile
-Team Member	Suraj Bhan	@SurajBhan	Profile
-College: Chaitanya Deemed to be University
-Department: Computer Science & Engineering
-Event: GDG X GLEC HackXtreame
+### 👨‍💻 Team
+### Role	Name	GitHub	LinkedIn
+### Team Leader	Shaik Abdul Razak	@AbdulRazak5764	Profile
+### Team Member	K. Ramya	@Ramya	Profile
+### Team Member	P. Rajesh	@Rajesh	Profile
+### Team Member	Suraj Bhan	@SurajBhan	Profile
+### College: Chaitanya Deemed to be University
+### Department: Computer Science & Engineering
+### Event: GDG X GLEC HackXtreame
 
 📞 Contact
 Shaik Abdul Razak (Team Leader)
@@ -662,9 +672,8 @@ Project Links
 
 📄 Project Documentation: Docs
 
-📄 License
-text
-MIT License
+### 📄 License
+### MIT License
 
 Copyright (c) 2024 ExamGuard AI Team
 
@@ -685,7 +694,8 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-⭐ Support
+
+### ⭐ Support
 If you found this project helpful, please consider:
 
 ⭐ Starring the repository
@@ -704,4 +714,4 @@ Made with ❤️ by ExamGuard AI Team
 
 ⬆ Back to Top
 
-</div> ```
+</div> 

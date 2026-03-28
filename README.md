@@ -668,7 +668,7 @@ Suraj Bhan
 Project Links
 🔗 GitHub Repository: https://github.com/AbdulRazak5764/Project-GKRK
 
-🌐 Live Demo: https://examguard-ai.vercel.app (Coming Soon)
+🌐 Live Demo: https://project-online-exam-ai.vercel.app/
 
 📄 Project Documentation: Docs
 

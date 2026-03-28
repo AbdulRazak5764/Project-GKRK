@@ -1,98 +1,138 @@
 # 🧠 ExamGuard AI – Online Exam Cheating Risk Predictor
 
-> A Cognitive–Behavioral Probability-Based AI Proctoring System
+> 🚀 A Cognitive–Behavioral AI System for Intelligent Exam Proctoring
 
 ---
 
-## 📌 Abstract
+## 📖 Table of Contents
 
-Online examinations are widely used today, but ensuring fairness is a major challenge. Traditional proctoring systems rely on webcam monitoring and rule-based detection, which are often intrusive and inaccurate.
-
-This project introduces an **AI-based Cheating Risk Predictor** that evaluates student behavior and outputs a **cheating probability score (0–100%)** instead of a simple binary result.
+* Overview
+* Problem Statement
+* Solution
+* Features
+* System Architecture
+* Modules
+* Tech Stack
+* Installation
+* Usage
+* API Endpoints
+* Project Structure
+* Results
+* Advantages
+* Limitations
+* Future Scope
+* Author
 
 ---
 
-## 🎯 Problem Statement
+## 🌍 Overview
 
-Existing systems suffer from:
+With the rapid growth of online education, maintaining **academic integrity** during remote exams has become a major challenge.
 
-* ❌ Binary decisions (Cheating / Not Cheating)
+Traditional proctoring systems:
+
+* Rely on webcam surveillance
+* Use rule-based detection
+* Are intrusive and unreliable
+
+👉 This project introduces a **next-gen AI system** that predicts cheating risk using **behavioral intelligence** instead of binary decisions.
+
+---
+
+## ❗ Problem Statement
+
+Existing systems fail because:
+
+* ❌ Binary output (Cheating / Not Cheating)
 * ❌ High false positives
-* ❌ Lack of behavioral intelligence
-* ❌ Privacy concerns
+* ❌ No behavioral understanding
+* ❌ Privacy-invasive monitoring
 
 👉 **Goal:**
-To design an intelligent system that predicts cheating probability based on behavioral patterns.
+Build a system that outputs a **probability score (0–100%)** based on user behavior.
 
 ---
 
-## 🚀 Proposed Solution
+## 💡 Solution
 
-The system:
+We developed an AI-powered system that:
 
-* Tracks real-time student behavior
-* Extracts features from interactions
-* Analyzes behavioral patterns
-* Generates a **risk score (0–100%)**
+1. Collects behavioral data
+2. Extracts meaningful features
+3. Analyzes patterns
+4. Predicts cheating probability
 
-👉 Example:
-`Risk Score = 72% (Moderate Risk)`
+👉 Example Output:
 
----
-
-## 🧩 System Architecture
-
-```
-Webcam + Keyboard + Mouse
-        ↓
-Feature Extraction
-        ↓
-Behavior Analysis
-        ↓
-Risk Prediction
-        ↓
-Dashboard
+```bash
+Risk Score = 72% (Moderate Risk)
 ```
 
 ---
 
-## ⚙️ Modules
+## ✨ Features
 
-### 📥 Data Acquisition
+* 🔍 Real-time behavior tracking
+* 🧠 AI-based risk prediction
+* 📊 Interactive dashboard
+* 🎯 Probability-based output (0–100%)
+* 📧 Email notification system
+* 🎨 Modern UI (Glassmorphism + Animations)
+* ⚡ Fast & responsive
 
-* Webcam video capture
-* Keyboard activity
-* Mouse tracking
+---
 
-### 🔍 Feature Extraction
+## 🏗️ System Architecture
+
+```bash
+User (Student)
+     ↓
+Webcam + Keyboard + Mouse Input
+     ↓
+Feature Extraction (CV + Interaction)
+     ↓
+Behavior Analysis Engine
+     ↓
+Risk Prediction Model
+     ↓
+Dashboard + Alerts + Email Notification
+```
+
+---
+
+## 🧩 Modules Explanation
+
+### 📥 1. Data Acquisition
+
+* Captures webcam feed
+* Records keyboard activity
+* Tracks mouse movement
+
+---
+
+### 🔍 2. Feature Extraction
 
 * Face detection
 * Eye gaze tracking
 * Head pose estimation
-* Typing speed
-* Mouse idle time
-
-### 🧠 Behavioral Analysis
-
-* Detect anomalies
-* Identify suspicious patterns
-
-### 📊 Risk Prediction
-
-* Weighted scoring model
-* Output: 0–100%
-
-### 📈 Dashboard
-
-* Risk score display
-* Alerts & logs
-* Student monitoring UI
+* Typing speed analysis
+* Mouse idle behavior
 
 ---
 
-## 🧮 Risk Scoring Model
+### 🧠 3. Behavioral Analysis
 
-```
+* Detects anomalies
+* Identifies unusual patterns
+* Monitors cognitive load
+
+---
+
+### 📊 4. Risk Prediction
+
+Uses weighted scoring:
+
+```bash
 Risk Score =
 (Behavior × 40%)
 + (Performance × 25%)
@@ -102,42 +142,113 @@ Risk Score =
 
 ---
 
-## 🛠️ Tech Stack
+### 📈 5. Dashboard
 
-| Category        | Tools                         |
-| --------------- | ----------------------------- |
-| Frontend        | Next.js, TypeScript, Tailwind |
-| Backend         | Node.js / Flask               |
-| AI/ML           | TensorFlow / PyTorch          |
-| Computer Vision | OpenCV, MediaPipe             |
-| Database        | MongoDB                       |
+Displays:
+
+* Risk score
+* Alerts
+* Activity logs
+* Student performance
 
 ---
 
-## ✨ Features
+## 🛠️ Tech Stack
 
-* ✅ Real-time behavior tracking
-* ✅ AI-based cheating risk prediction
-* ✅ Interactive dashboard
-* ✅ Smooth modern UI (Glassmorphism + Animations)
-* ✅ Email notification system
+### Frontend
+
+* Next.js (App Router)
+* TypeScript
+* Tailwind CSS
+* Framer Motion
+
+### Backend
+
+* Node.js / Flask
+
+### AI/ML
+
+* TensorFlow / PyTorch
+
+### Computer Vision
+
+* OpenCV
+* MediaPipe
+
+### Database
+
+* MongoDB
+
+---
+
+## ⚙️ Installation
+
+```bash
+git clone https://github.com/your-username/examguard-ai.git
+cd examguard-ai
+npm install
+npm run dev
+```
+
+---
+
+## ▶️ Usage
+
+1. Open the application
+2. Login as Student/Admin
+3. Start exam
+4. System tracks behavior
+5. Risk score generated
+6. Admin can view dashboard
+
+---
+
+## 🔌 API Endpoints
+
+### Send Email
+
+```bash
+POST /api/send-email
+```
+
+### Get Risk Data
+
+```bash
+GET /api/risk
+```
+
+---
+
+## 📁 Project Structure
+
+```bash
+app/
+ ├── login/
+ ├── dashboard/
+ ├── analysis/
+ ├── api/
+components/
+contexts/
+hooks/
+lib/
+```
 
 ---
 
 ## 📊 Results
 
-* ✔ Real-time tracking achieved
-* ✔ Risk prediction working
-* ✔ Low latency (~1–2 sec)
-* ✔ Detects abnormal behavior
+* ✅ Real-time tracking implemented
+* ✅ Risk scoring working
+* ✅ Low latency (~1–2 sec)
+* ✅ Detects abnormal behavior
 
 ---
 
 ## 👍 Advantages
 
-* Accurate prediction
-* Reduced false accusations
-* Ethical & privacy-aware
+* High accuracy
+* Low false positives
+* Ethical AI approach
 * Scalable system
 
 ---
@@ -145,41 +256,40 @@ Risk Score =
 ## ⚠️ Limitations
 
 * Requires webcam
-* Sensitive to lighting
+* Lighting dependent
 * Limited dataset
 
 ---
 
 ## 🔮 Future Scope
 
-* Advanced ML models (LSTM)
+* LSTM-based prediction models
 * Cloud deployment
 * LMS integration
-* Higher accuracy
-
----
-
-## 🧾 Conclusion
-
-This project presents a **next-generation AI proctoring system** that uses behavioral intelligence to predict cheating risk.
-
-It improves fairness, reduces false positives, and provides an ethical alternative to traditional monitoring systems.
+* Improved accuracy
 
 ---
 
 ## 👨‍💻 Author
 
 **Shaik Abdul Razak**
-B.Tech CSE – Chaitanya Deemed to be University
+B.Tech CSE
+Chaitanya Deemed to be University
 
 ---
 
-## 🌐 Live Demo (Add after deployment)
+## 🌐 Live Demo
 
-👉 Coming Soon...
+👉 Coming Soon (Deploy on Vercel)
 
 ---
 
-## ⭐ GitHub
+## ⭐ Support
 
-If you like this project, don't forget to ⭐ the repo!
+If you like this project:
+
+⭐ Star this repository
+🍴 Fork it
+📢 Share it
+
+---

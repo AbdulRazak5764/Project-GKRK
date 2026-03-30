@@ -169,7 +169,8 @@ Opt-in Consent: Students informed about monitoring
 
 ## 🏗️ System Architecture
 
-![System Architecture](public/images/system_architecture-GKRK.png)
+![System Architecture](./system_architecture-GKRK.png)
+
 
 ### 🧩 Modules
 ### 1. 📥 Data Acquisition Module

@@ -529,7 +529,7 @@ If you found this project helpful, please consider:
 
 <div align="center">
 Made with ❤️ by ExamGuard AI Team
-© 2024 | All Rights Reserved
+© 2026 | All Rights Reserved
 
 ⬆ Back to Top
 

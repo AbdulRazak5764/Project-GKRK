@@ -483,7 +483,7 @@ Suraj Bhan
 Project Links
 🔗 GitHub Repository: https://github.com/AbdulRazak5764/Project-GKRK
 
-🌐 Live Demo: https://project-online-exam-ai.vercel.app/
+🌐 Live Demo: https://projecttech-titans.vercel.app/
 
 📄 Project Documentation: Docs
 

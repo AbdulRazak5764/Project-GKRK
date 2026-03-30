@@ -368,10 +368,9 @@ POST /api/alert
   "reason": "Multiple face detection"
 }
 
-
 ## 📁 Project Structure
 
-![Project Structure](./project stucture.png)
+![Project Structure](./project-structure.png)
 
 ### 📡 API Endpoints
 Method	Endpoint	Description

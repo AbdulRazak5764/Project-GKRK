@@ -275,6 +275,8 @@ Render	Backend deployment
 ## 📊 Dashboard Preview
 
 ![Dashboard](./Dashboard.png)
+![Dashboard](./)
+![Dashboard](./)
 
 ### 🎥 Live Demo
 Live Demo URL: https://projecttech-titans.vercel.app/

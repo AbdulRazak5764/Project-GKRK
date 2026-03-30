@@ -486,7 +486,7 @@ Project Links
 🔗 GitHub Repository: https://github.com/AbdulRazak5764/Project-GKRK
 
 🌐 Live Demo: https://project-exam-guard-ai-batch2.vercel.app/
-               https://exam-guard-ai.netlify.app/
+              
 
 
 📄 Project Documentation: Docs

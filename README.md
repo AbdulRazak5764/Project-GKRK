@@ -484,6 +484,8 @@ Project Links
 🔗 GitHub Repository: https://github.com/AbdulRazak5764/Project-GKRK
 
 🌐 Live Demo: https://projecttech-titans.vercel.app/
+               https://exam-guard-ai.netlify.app/
+
 
 📄 Project Documentation: Docs
 

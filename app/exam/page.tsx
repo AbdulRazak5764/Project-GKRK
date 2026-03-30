@@ -12,6 +12,7 @@ import { Label } from "@/components/ui/label"
 import { Brain, AlertTriangle, LogOut, Eye, MousePointer, Keyboard, Activity, TrendingUp } from "lucide-react"
 import { ExamTimer } from "@/components/exam-timer"
 import { VideoFeed } from "@/components/video-feed"
+import { ExplainableRisk } from "@/components/analysis/explainable-risk"
 import { useExam } from "@/contexts/exam-context"
 import { useAuth } from "@/contexts/auth-context"
 
@@ -116,6 +117,7 @@ export default function ExamPage() {
     trackMouseMovement,
     trackTyping,
     initializeStudentSession,
+    resetExam,
     riskScore,
     cognitiveLoad,
     behavioralData,
@@ -176,6 +178,7 @@ export default function ExamPage() {
   }
 
   const handleLogout = () => {
+    resetExam()
     logout()
     router.push("/")
   }
@@ -399,6 +402,7 @@ export default function ExamPage() {
         </div>
 
         <div className="space-y-4 overflow-y-auto">
+          <ExplainableRisk />
           <VideoFeed />
 
           <Card className="border-2 border-primary/20">

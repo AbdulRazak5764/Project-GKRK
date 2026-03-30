@@ -23,6 +23,7 @@ import {
   ResponsiveContainer,
 } from "recharts"
 import { useExam } from "@/contexts/exam-context"
+import { DeviceDetectionControls, ObjectDetectionOverlay } from "@/components/detection"
 import { useAuth } from "@/contexts/auth-context"
 import { useRouter } from "next/navigation"
 
@@ -266,7 +267,7 @@ export default function DashboardPage() {
         </div>
 
         {/* Behavioral Metrics Grid */}
-        <div className="grid md:grid-cols-3 gap-6 mb-6">
+        <div className="grid md:grid-cols-4 gap-6 mb-6">
           <motion.div variants={itemVariants}>
             <GlassCard className="h-full">
               <GlassCardHeader>
@@ -386,6 +387,10 @@ export default function DashboardPage() {
                 </div>
               </GlassCardContent>
             </GlassCard>
+          </motion.div>
+
+          <motion.div variants={itemVariants}>
+            <DeviceDetectionControls />
           </motion.div>
         </div>
 

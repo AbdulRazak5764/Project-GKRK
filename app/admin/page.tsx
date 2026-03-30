@@ -168,6 +168,24 @@ export default function AdminPage() {
             </GlassCard>
           </motion.div>
 
+          {selectedStudent.isFlagged && (
+            <motion.div variants={itemVariants}>
+              <GlassCard className="border-2 border-red-500/50 bg-red-500/10">
+                <GlassCardHeader>
+                  <div className="flex items-start gap-3">
+                    <AlertCircle className="w-6 h-6 text-red-500 flex-shrink-0 mt-1 animate-pulse" />
+                    <div>
+                      <GlassCardTitle className="text-base text-red-500">SECURITY ALERT: Identity Verification Failed</GlassCardTitle>
+                      <GlassCardDescription className="mt-2 text-xs leading-relaxed text-red-200">
+                        This session was automatically flagged because continuous face verification failed. The current user's face does not match the baseline parameters captured at the start, or no face was detected. Immediate review required.
+                      </GlassCardDescription>
+                    </div>
+                  </div>
+                </GlassCardHeader>
+              </GlassCard>
+            </motion.div>
+          )}
+
           {/* Student Basic Details */}
           <motion.div variants={itemVariants}>
             <GlassCard>
@@ -562,6 +580,11 @@ export default function AdminPage() {
                               <Badge variant={session.isActive ? "default" : "secondary"} className={`mt-2 text-xs ${session.isActive ? "bg-blue-600 hover:bg-blue-500" : "bg-white/10 text-slate-200"}`}>
                                 {session.isActive ? "Active" : "Completed"}
                               </Badge>
+                              {session.isFlagged && (
+                                <Badge variant="destructive" className="mt-2 ml-2 text-xs bg-red-600 animate-pulse border-red-400">
+                                  Flagged
+                                </Badge>
+                              )}
                             </div>
 
                             <div className="text-center">

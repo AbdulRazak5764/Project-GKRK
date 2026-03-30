@@ -40,6 +40,7 @@ interface StudentSession {
   answers: Record<number, string>
   marks?: number
   remarks?: string
+  isFlagged: boolean
 }
 
 interface ExamContextType {
@@ -54,6 +55,7 @@ interface ExamContextType {
 
   // Real-time metrics
   riskScore: number
+  externalRiskOffset: number
   cognitiveLoad: number
   behavioralData: BehavioralData
   timelineData: TimelinePoint[]
@@ -69,6 +71,15 @@ interface ExamContextType {
   initializeStudentSession: (studentId: string, studentName: string) => void
   saveStudentSession: () => void
   updateStudentMarks: (studentId: string, marks: number, remarks: string) => void
+  
+  // Security 
+  sessionFlagged: boolean
+  flagSession: (reason: string) => void
+  addEvent: (event: string, impact: string) => void
+  setRiskScore: React.Dispatch<React.SetStateAction<number>>
+  setExternalRiskOffset: React.Dispatch<React.SetStateAction<number>>
+  reportFacePresence: (detected: boolean) => void
+  resetExam: () => void
 }
 
 const ExamContext = createContext<ExamContextType | undefined>(undefined)
@@ -82,6 +93,7 @@ export function ExamProvider({ children }: { children: ReactNode }) {
   const [timelineData, setTimelineData] = useState<TimelinePoint[]>([])
   const [eventLog, setEventLog] = useState<ExamEvent[]>([])
   const [examStartTime, setExamStartTime] = useState<number>(0)
+  const [sessionFlagged, setSessionFlagged] = useState(false)
 
   const [allStudentSessions, setAllStudentSessions] = useState<StudentSession[]>([])
   const [currentStudentId, setCurrentStudentId] = useState<string>("")
@@ -104,8 +116,66 @@ export function ExamProvider({ children }: { children: ReactNode }) {
   const [blinkCount, setBlinkCount] = useState(0)
   const [blinkTimestamps, setBlinkTimestamps] = useState<number[]>([])
   const [lastKeyPressTime, setLastKeyPressTime] = useState<number>(Date.now())
+  const [facePresenceCounter, setFacePresenceCounter] = useState(0)
+
+  // 1. Tab Switching Detection (Real)
+  useEffect(() => {
+    if (!examStarted || examCompleted) return
+
+    const handleVisibilityChange = () => {
+      if (document.visibilityState === "hidden") {
+        addEvent("Tab switched / Window hidden", "Risk +25% (Critical)")
+        setExternalRiskOffset((prev) => Math.min(100, prev + 25))
+      }
+    }
+
+    const handleBlur = () => {
+      addEvent("User left exam window", "Risk +15% (Warning)")
+      setExternalRiskOffset((prev) => Math.min(100, prev + 15))
+    }
+
+    document.addEventListener("visibilitychange", handleVisibilityChange)
+    window.addEventListener("blur", handleBlur)
+
+    return () => {
+      document.removeEventListener("visibilitychange", handleVisibilityChange)
+      window.removeEventListener("blur", handleBlur)
+    }
+  }, [examStarted, examCompleted])
+
+  // 2. Face Presence Tracking
+  const reportFacePresence = (detected: boolean) => {
+    if (!detected) {
+      setFacePresenceCounter(prev => prev + 1)
+    } else {
+      setFacePresenceCounter(0)
+    }
+  }
+
+  // Effect to trigger "No Face" risk
+  useEffect(() => {
+    if (facePresenceCounter > 5) { // If missing for ~5 checks (~5 seconds)
+      addEvent("No face detected in frame", "Risk +40% (Critical)")
+      setExternalRiskOffset((prev) => Math.min(100, prev + 40))
+      setFacePresenceCounter(0) // Reset to avoid flooding
+    }
+  }, [facePresenceCounter])
+
+  const resetExam = () => {
+    setExamStarted(false)
+    setExamCompleted(false)
+    setCurrentQuestion(0)
+    setRiskScore(15)
+    setExternalRiskOffset(0)
+    setCognitiveLoad(40)
+    setTimelineData([])
+    setEventLog([])
+    setSessionFlagged(false)
+    setFacePresenceCounter(0)
+  }
 
   const initializeStudentSession = (studentId: string, studentName: string, studentEmail?: string) => {
+    resetExam()
     setCurrentStudentId(studentId)
     setCurrentStudentName(studentName)
     if (studentEmail) setCurrentStudentEmail(studentEmail)
@@ -142,6 +212,7 @@ export function ExamProvider({ children }: { children: ReactNode }) {
       eventLog: [...eventLog],
       isActive: false,
       answers: {},
+      isFlagged: sessionFlagged,
     }
 
     setAllStudentSessions((prev) => [...prev, newSession])
@@ -270,19 +341,48 @@ export function ExamProvider({ children }: { children: ReactNode }) {
     setEventLog((prev) => [...prev, { time: timeStr, event, impact }])
   }
 
+  const flagSession = (reason: string) => {
+    if (!sessionFlagged) {
+      setSessionFlagged(true)
+      addEvent(`CRITICAL: Session flagged - ${reason}`, "Admin Notified")
+      setRiskScore(100)
+    }
+  }
+
+  const [externalRiskOffset, setExternalRiskOffset] = useState(0)
+
   // Calculate real-time risk score based on all behavioral metrics
   useEffect(() => {
     if (!examStarted || examCompleted) return
 
     const interval = setInterval(() => {
-      // Calculate risk from each feature (0-100 scale)
-      const gazeRisk = (behavioralData.gazeDeviation / 50) * 25 // Max 25% from gaze
-      const blinkRisk = (Math.abs(behavioralData.blinkRate - 18) / 18) * 15 // Max 15% from blink (normal is 18)
-      const mouseRisk = (behavioralData.mouseHesitation / 40) * 20 // Max 20% from mouse
-      const headRisk = (behavioralData.headMovement / 55) * 25 // Max 25% from head movement
-      const typingRisk = (Math.abs(behavioralData.typingSpeed - 50) / 50) * 15 // Max 15% from typing deviation
+      // 1. Behavioral Risk (40% Weight)
+      const gazeRisk = (behavioralData.gazeDeviation / 50) * 10
+      const blinkRisk = (Math.abs(behavioralData.blinkRate - 18) / 18) * 10
+      const headRisk = (behavioralData.headMovement / 55) * 10
+      const typingRisk = (Math.abs(behavioralData.typingSpeed - 50) / 50) * 10
+      const behavioralSubtotal = (gazeRisk + blinkRisk + headRisk + typingRisk) // Max 40%
 
-      const calculatedRisk = Math.max(5, Math.min(100, gazeRisk + blinkRisk + mouseRisk + headRisk + typingRisk))
+      // 2. Digital Risk (15% Weight) - Tabs/Focus
+      // This is handled by externalRiskOffset from tab switching, but we can scale it
+      const digitalSubtotal = Math.min(15, externalRiskOffset * 0.15)
+
+      // 3. Environmental Risk (20% Weight) - Simulated background noise/persons
+      // We'll scale the part of offset related to 'Multiple persons' here
+      const environmentalSubtotal = Math.min(20, (externalRiskOffset > 20 ? 15 : 0))
+
+      // 4. Performance / Session Integrity (25% Weight)
+      const performanceSubtotal = sessionFlagged ? 25 : (currentQuestion / 10) * 5 // Progress slightly affects baseline
+
+      const calculatedRisk = Math.max(5, Math.min(100, behavioralSubtotal + digitalSubtotal + environmentalSubtotal + performanceSubtotal + (externalRiskOffset * 0.5)))
+
+      // Real-time Suspicious Activity Detection logic (remains active)
+      if (behavioralData.headMovement > 45 || behavioralData.gazeDeviation > 45) {
+        if (Math.random() < 0.15) { // Reduced probability to avoid flooding at 1s interval
+          addEvent("Unusual behavior / high deviation", "Risk +5% (Automated)")
+          setExternalRiskOffset((prev) => Math.min(100, prev + 5))
+        }
+      }
 
       setRiskScore(calculatedRisk)
 
@@ -307,10 +407,10 @@ export function ExamProvider({ children }: { children: ReactNode }) {
         }
         return [...prev, newPoint].slice(-60)
       })
-    }, 2000)
+    }, 1000)
 
     return () => clearInterval(interval)
-  }, [examStarted, examCompleted, behavioralData, currentQuestion, cognitiveLoad, examStartTime])
+  }, [examStarted, examCompleted, behavioralData, currentQuestion, cognitiveLoad, examStartTime, externalRiskOffset])
 
   const updateStudentMarks = (studentId: string, marks: number, remarks: string) => {
     setAllStudentSessions((prev) =>
@@ -339,6 +439,14 @@ export function ExamProvider({ children }: { children: ReactNode }) {
     initializeStudentSession,
     saveStudentSession,
     updateStudentMarks,
+    sessionFlagged,
+    flagSession,
+    addEvent,
+    setRiskScore,
+    externalRiskOffset,
+    setExternalRiskOffset,
+    reportFacePresence,
+    resetExam,
   }
 
   return <ExamContext.Provider value={value}>{children}</ExamContext.Provider>

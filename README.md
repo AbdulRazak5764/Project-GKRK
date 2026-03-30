@@ -368,47 +368,10 @@ POST /api/alert
   "reason": "Multiple face detection"
 }
 
+
 ## 📁 Project Structure
 
-Project-GKRK/
-├── app/                          # Next.js App Router
-│   ├── (auth)/                   # Authentication routes
-│   │   ├── login/                # Login page
-│   │   └── register/             # Registration
-│   ├── (dashboard)/              # Dashboard routes
-│   │   ├── admin/                # Admin dashboard
-│   │   ├── student/              # Student dashboard
-│   │   └── analysis/             # Risk analysis
-│   ├── api/                      # API routes
-│   │   ├── send-email/           # Email notifications
-│   │   ├── risk/                 # Risk prediction API
-│   │   └── auth/                 # Authentication API
-│   ├── layout.tsx                # Root layout
-│   └── page.tsx                  # Homepage
-├── components/                   # React components
-│   ├── ui/                       # UI components (buttons, cards)
-│   ├── dashboard/                # Dashboard components
-│   ├── analysis/                 # Analysis components
-│   └── animations/               # Animation components
-├── lib/                          # Utility functions
-│   ├── ai/                       # AI model integration
-│   │   ├── faceDetection.ts      # Face detection logic
-│   │   ├── gazeTracking.ts       # Gaze tracking
-│   │   └── riskModel.ts          # Risk prediction model
-│   ├── email/                    # Email utilities
-│   │   └── sendEmail.ts          # Nodemailer setup
-│   └── db/                       # Database utilities
-├── public/                       # Static assets
-│   ├── images/                   # Images
-│   └── icons/                    # Icons
-├── styles/                       # Global styles
-├── types/                        # TypeScript types
-├── .env.local                    # Environment variables
-├── .gitignore                    # Git ignore
-├── package.json                  # Dependencies
-├── tailwind.config.js            # Tailwind config
-├── tsconfig.json                 # TypeScript config
-└── README.md                     # This file
+![Project Structure](./project stucture.png)
 
 ### 📡 API Endpoints
 Method	Endpoint	Description

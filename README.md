@@ -485,7 +485,7 @@ Suraj Bhan
 Project Links
 🔗 GitHub Repository: https://github.com/AbdulRazak5764/Project-GKRK
 
-🌐 Live Demo: https://projecttech-titans.vercel.app/
+🌐 Live Demo: https://project-exam-guard-ai-batch2.vercel.app/
                https://exam-guard-ai.netlify.app/
 
 

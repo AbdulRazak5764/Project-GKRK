@@ -368,9 +368,8 @@ POST /api/alert
   "reason": "Multiple face detection"
 }
 
+## 📁 Project Structure
 
-### 📁 Project Structure
-text
 Project-GKRK/
 ├── app/                          # Next.js App Router
 │   ├── (auth)/                   # Authentication routes

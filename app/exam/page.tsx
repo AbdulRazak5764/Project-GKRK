@@ -96,7 +96,7 @@ const QUESTIONS = [
 ]
 
 export default function ExamPage() {
-  const { isAuthenticated, userRole, userId, userName, logout } = useAuth()
+  const { isAuthenticated, userRole, userId, userName, userEmail, logout } = useAuth()
   const router = useRouter()
 
   useEffect(() => {
@@ -156,7 +156,7 @@ export default function ExamPage() {
 
   const handleStartExam = () => {
     if (userId && userName) {
-      initializeStudentSession(userId, userName)
+      initializeStudentSession(userId, userName, userEmail)
     }
     startExam()
   }

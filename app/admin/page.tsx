@@ -83,14 +83,9 @@ export default function AdminPage() {
           
           const result = await response.json();
           if (response.ok) {
-            if (result.testUrl) {
-              console.log("Email captured in sandbox: ", result.testUrl);
-              alert("Marks saved! (Note: Since .env isn't set with real EMAIL_USER, an Ethereal Sandbox email was generated. Check console for link)");
-            } else {
-              alert("Marks saved successfully and Official Email sent to student's inbox!");
-            }
+            alert("Marks saved successfully and Official Email sent to student's inbox!");
           } else {
-             alert("Marks saved but failed to send email notification.");
+             alert(`Marks saved but failed to send email notification. Reference: ${result.details || 'Check logs'}`);
           }
 
         } catch (error) {

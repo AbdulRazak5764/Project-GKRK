@@ -68,7 +68,7 @@ interface ExamContextType {
   updateHeadPose: (pose: string) => void
 
   allStudentSessions: StudentSession[]
-  initializeStudentSession: (studentId: string, studentName: string) => void
+  initializeStudentSession: (studentId: string, studentName: string, studentEmail?: string) => void
   saveStudentSession: () => void
   updateStudentMarks: (studentId: string, marks: number, remarks: string) => void
   

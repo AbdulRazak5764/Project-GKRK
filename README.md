@@ -277,8 +277,8 @@ Render	Backend deployment
 ![Dashboard](./Dashboard.png)
 
 ### 🎥 Live Demo
-Live Demo URL: https://examguard-ai.vercel.app
-(Coming soon after deployment)
+Live Demo URL: https://projecttech-titans.vercel.app/
+
 
 Demo Credentials:
 

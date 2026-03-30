@@ -370,7 +370,7 @@ POST /api/alert
 
 ## 📁 Project Structure
 
-![Project Structure](./project-structure.png)
+![Project Structure](./project_structure.png)
 
 ### 📡 API Endpoints
 Method	Endpoint	Description

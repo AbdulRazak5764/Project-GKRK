@@ -241,22 +241,9 @@ Risk Score	Level	Action Required
 61-85%	🟠 High Risk	Immediate alert, admin notified
 86-100%	🔴 Critical Risk	Admin intervention recommended
 Weight Distribution
-text
-┌─────────────────────────────────────────────┐
-│           RISK SCORE CALCULATION            │
-├─────────────────────────────────────────────┤
-│                                             │
-│  ████████████████████░░░░░░░░░░░░░░░░░░░░   │
-│  ██████████████████████████░░░░░░░░░░░░░░   │
-│  ████████████████████████████████████░░░░   │
-│  ████████████████████████████████████████   │
-│                                             │
-│  🧠 Behavior         ████████████████ 40%  │
-│  📝 Performance      ██████████░░░░░░ 25%  │
-│  🌍 Environment      ████████░░░░░░░░ 20%  │
-│  🖱️ Interaction      ██████░░░░░░░░░░ 15%  │
-│                                             │
-└─────────────────────────────────────────────┘
+## 📸 Live Demo Screenshot
+
+![ExamGuard AI Demo](./risk.jpeg)
 
 ### 🛠️ Tech Stack
 Frontend
